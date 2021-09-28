@@ -3,6 +3,7 @@ import { useHistory } from 'react-router'
 import MarkdownPreview from '@uiw/react-markdown-preview';
 import Loader from './Loading';
 import { capitalizeFirstLetter } from '../utils/Index';
+import BackToTop from './BackToTop';
 
 const ProjectsInfo = (props) => {
     const [loading, setLoading] = useState(false);
@@ -48,6 +49,7 @@ const ProjectsInfo = (props) => {
                     }
                 </div>
             </div>
+            <BackToTop />
         </div>
     )
 }

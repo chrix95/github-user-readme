@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router'
 import Loader from './Loading';
 import { capitalizeFirstLetter } from '../utils/Index';
+import BackToTop from './BackToTop';
 
 const Projects = (props) => {
     const [repositories, setRepositories] = useState(undefined);
@@ -26,7 +27,6 @@ const Projects = (props) => {
                 } else {
                     setRepositories(result);
                 }
-                console.log(result)
                 setLoading(false);
             });
     }, [username])
@@ -65,6 +65,7 @@ const Projects = (props) => {
                     )
                 )
             }
+            <BackToTop />
         </div>
     )
 }
