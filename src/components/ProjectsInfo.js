@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
 import MarkdownPreview from '@uiw/react-markdown-preview';
-import Loading from './Loading';
+import Loader from './Loading';
+import { capitalizeFirstLetter } from '../utils/Index';
 
 const ProjectsInfo = (props) => {
     const [loading, setLoading] = useState(false);
@@ -28,8 +29,8 @@ const ProjectsInfo = (props) => {
         <div className="container">
             <div className="row justify-content-center align-items-center">
                 <div className="col">
-                    <div className="d-flex justify-content-between align-items-center">
-                        <h1>{projectname}</h1>
+                    <div className="d-flex justify-content-between align-items-center mt-2">
+                        <h1>{capitalizeFirstLetter(projectname)}</h1>
                         <div className="d-grid gap-2 d-md-block">
                             <button type="button" className="btn btn-outline-warning btn-sm  me-md-2" onClick={() =>history.goBack()}>Back to project list</button>
                             <button type="button" className="btn btn-outline-secondary btn-sm" onClick={() => history.push('/')}>Back home</button>
@@ -39,7 +40,7 @@ const ProjectsInfo = (props) => {
                     {
                         loading ? 
                         (
-                            <Loading message="Retrieving README markdown content..." />
+                            <Loader message="Retrieving README markdown content..." />
                         ) : 
                         (
                             <MarkdownPreview source={source} style={{ margin: "2rem auto" }} />
