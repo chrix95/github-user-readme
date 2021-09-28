@@ -23,11 +23,15 @@ const Home = () => {
         <div className="container">
           <div className="row justify-content-center align-items-center">
             <div className="col-xs-12 col-md-6">
-              <h1>Github Username</h1>
-              <form onSubmit={() => retrieveProjects()}>
-                <input type="text" value={username} className="form-control" onChange={handleChange} placeholder="Press 'Enter' after typing" autoFocus></input>
-                <small>Letter counter: {username.length}</small>
-              </form>
+              <div className="card">
+                <div className="card-body">
+                  <h2 className="mb-2">Github Username</h2>
+                  <form onSubmit={() => retrieveProjects()}>
+                    <input type="text" value={username} className="form-control" onChange={handleChange} placeholder="Press 'Enter' after typing" autoFocus></input>
+                    <small>Letter counter: {username.length}</small>
+                  </form>
+                </div>
+              </div>
             </div>
           </div>
         </div>

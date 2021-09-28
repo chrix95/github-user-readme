@@ -44,7 +44,11 @@ const ProjectsInfo = (props) => {
                             <Loader message="Retrieving README markdown content..." />
                         ) : 
                         (
-                            <MarkdownPreview source={source} style={{ margin: "2rem auto" }} />
+                            <div className="card mb-5">
+                                <div className="card-body">
+                                    <MarkdownPreview source={source} style={{ margin: "2rem auto" }} />
+                                </div>
+                            </div>
                         )
                     }
                 </div>

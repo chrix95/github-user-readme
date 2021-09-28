@@ -34,7 +34,7 @@ const Projects = (props) => {
     return (
         <div className="container">
             <div className="d-flex justify-content-between align-items-center mt-2">
-                <h1>{capitalizeFirstLetter(username)}'s projects</h1>
+                <h2 className="m-0">{capitalizeFirstLetter(username)}'s projects</h2>
                 <button type="button" className="btn btn-secondary btn-sm" onClick={() => history.push('/')}>Search Again</button>
             </div>
             <hr></hr>
@@ -48,18 +48,23 @@ const Projects = (props) => {
                         <p className="text-danger"><i>Oops! {capitalizeFirstLetter(username)}'s repository not found</i> 😳 </p>
                     ) : (
                         <div className="row justify-content-center align-items-center">
-                            <div className="col-xs-12 col-md-6">
-                                <h5 className="text-success mt-3">Total Project{repositories.length > 1 ? 's' : ''}: {repositories.length} </h5>
-                                <hr></hr>
-                                <ul className="list-style-none">
-                                    {
-                                        repositories && repositories.map((repo) => (
-                                            <li key={repo.id} onClick={() => viewDetails(repo.name, repo.default_branch)}>
-                                                {repo.name}
-                                            </li>
-                                        ))
-                                    }
-                                </ul>
+                            <div className="col-xs-12 col-md-8">
+                                <div className="card mb-5">
+                                    <div className="card-header">
+                                        <h5 className="text-success mt-3">Total Project{repositories.length > 1 ? 's' : ''}: {repositories.length} </h5>
+                                    </div>
+                                    <div className="card-body">
+                                        <ul className="list-group list-group-flush list-style-none">
+                                            {
+                                                repositories && repositories.map((repo) => (
+                                                    <li className="list-group-item" key={repo.id} onClick={() => viewDetails(repo.name, repo.default_branch)}>
+                                                        {repo.name}
+                                                    </li>
+                                                ))
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     )
