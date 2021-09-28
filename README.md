@@ -3,6 +3,9 @@
 ## Setup Process
 
 - Clone the project to your local directory [Link](https://github.com/chrix95/github-user-readme.git)
+```
+git clone https://github.com/chrix95/github-user-readme.git
+``` 
 - Change into the directory created by the clone
 ```
 cd github-user-readme
