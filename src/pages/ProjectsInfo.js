@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
 import MarkdownPreview from '@uiw/react-markdown-preview';
-import Loader from './Loading';
 import { capitalizeFirstLetter } from '../utils/Index';
-import BackToTop from './BackToTop';
+
+import Loader from '../components/Loading';
+import BackToTop from '../components/BackToTop';
 
 const ProjectsInfo = (props) => {
-    const [loading, setLoading] = useState(false);
     const history = useHistory();
-    const username = props.match.params.username;
-    const projectname = props.match.params.projectname;
-    const branch = history.location.state.branch;
-    const [source, setSource] = useState('')
+    const [loading, setLoading] = useState(false);
+    const [source, setSource] = useState('');
+    
+    const { username, projectname } = props.match.params;
+    const { branch } = history.location.state;
 
     useEffect(() => {
         setLoading(true);

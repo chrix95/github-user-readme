@@ -4,9 +4,9 @@ import {
   Route,
   Switch,
 } from "react-router-dom";
-import Home from './components/Home';
-import Projects from './components/Projects';
-import ProjectsInfo from './components/ProjectsInfo';
+import Home from './pages/Home';
+import Projects from './pages/Projects';
+import ProjectsInfo from './pages/ProjectsInfo';
 
 import './App.css';
 

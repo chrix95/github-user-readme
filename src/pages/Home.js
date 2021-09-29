@@ -9,12 +9,15 @@ const Home = () => {
     setUsername(e.target.value);
   };
 
-  const retrieveProjects = () => {
-    if (!username) {
-      alert("Enter a valid username")
-      return
+  const retrieveProjects = (e) => {
+    e.preventDefault();
+    const trimmedUsername = username.trim();
+    if (trimmedUsername === "") {
+      setUsername(trimmedUsername);
+      alert("Enter a valid username");
+    } else {
+      history.push(`/${trimmedUsername}`);
     }
-    history.push(`/${username}`);
   };
 
   return (
@@ -26,7 +29,7 @@ const Home = () => {
               <div className="card">
                 <div className="card-body">
                   <h2 className="mb-2">Github Username</h2>
-                  <form onSubmit={() => retrieveProjects()}>
+                  <form onSubmit={(e) => retrieveProjects(e)}>
                     <input type="text" value={username} className="form-control" onChange={handleChange} placeholder="Press 'Enter' after typing" autoFocus></input>
                     <small>Letter counter: {username.length}</small>
                   </form>
